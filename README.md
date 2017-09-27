@@ -4,6 +4,7 @@ Java SDK for making calls using the Bitel server
 
 ## Table Of Contents
 - [Requirements](#requirements)
+- [Download Jar](#download-jar)
 - [Overview](#overview)
 - [Calling Scenario](#calling-scenario)
 - [Making A Call](#making-a-call)
@@ -16,6 +17,9 @@ Java SDK for making calls using the Bitel server
 
 ## Requirements
 This SDK requires Java 1.6 or newer versions
+
+## Download Jar
+Download latest jar file from [here](https://drive.google.com/file/d/0Bwj0uuw3Bxb-dW9MVnI0RFpWMVU/view?usp=sharing)
 
 ## Overview
 This library allows you to make calls using Bitel server.
