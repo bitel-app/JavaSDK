@@ -125,4 +125,4 @@ Under Development
 Under Development
 
 ## Contact Us
-If you need help feel free to cantact us at wwww.bitelapp.ir[at]gmail.com
+If you need help feel free to cantact us at www.bitelapp.ir[at]gmail.com
