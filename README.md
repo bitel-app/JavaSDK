@@ -60,6 +60,8 @@ Alternatively you could use `setDebug` to enable logging.
 ### #2 Create BitelCall Instance
 ```java
 BitelCall bitelCall = new BitelCall("SOURCE_NUMBER", "TARGET_NUMBER", VOICEID);
+//Optionally call setCode
+//bitelCall.setCode("RECEIVED SMS CODE")
 ```
 ### #3 Create BitelService Instance
 Pass the config from step #1 to BitelService constructor
@@ -84,6 +86,8 @@ try{
              break;
          case NotRegistered:
              break;
+         case CodeAlreadySent:
+              break;
          case Unknown:
              break;
      }
@@ -103,6 +107,8 @@ This error indicates that the provided token is invalid.
 This error indicates that one of the provided parameters in call method is invalid.
 #### Not Registered
 This error indicates that the source number isn`t registered, refer to [user registration section](#user-registration).
+#### Code Already Sent
+This error indicates that the registration code is already sent and a new registration code cannot be sent until a minute has passed.
 
 ## Call Detail Record
 Once the call is finished a CDR(Call Detail Record) is sent to your server with the specified web hook URL.
@@ -119,10 +125,23 @@ Based on whether call was successful or not the CDR contains one of the followin
 - Unknown: many things could go wrong, but you shouldn`t concerned about it
 
 ## User Registration
-Under Development
+In order to make calls with bitel api users must be registered ib bitel service(OTP).This is required due to MCI/MTN regulations.
+Fortunately this process is simplified using the SDK, all you have to do is to call an extra method if the result of the call API throws NotRegistered Exception.
+This Exception indicates that the user hasn`t been registered yet and therefore when creating BitelCall instance, the setCode method should be called subsequently.
+Calling the setCode method will ensure that the sourceUser is registered before bitel call is made.
 
 ## CDR WebHook
-Under Development
+Once a call is finished a CDR is sent to the given WebHook Url with the following specification:
+Method: POST
+Content-Type: application/json
+Parameters(example):
+```json
+{
+  "callId": 123456, //long
+  "status": "Answered|NoAnswered|Busy|Unknown",
+  "duration": 60 //seconds
+}
+```
 
 ## Contact Us
 If you need help feel free to cantact us at www.bitelapp.ir[at]gmail.com

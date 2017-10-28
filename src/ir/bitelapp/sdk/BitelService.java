@@ -28,7 +28,8 @@ public class BitelService {
                     .add("sourcePhone", callReq.getFrom())
                     .add("destPhone", callReq.getTo())
                     .add("productId", callReq.getProductId())
-                    .add("uuid", callReq.getUuid());
+                    .add("uuid", callReq.getUuid())
+                    .add("code", callReq.getCode());
             URL obj = new URL(config.getBaseUrl() + "secretary/dcall");
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -79,6 +80,8 @@ public class BitelService {
                     throw new BitelException(BitelExceptionCodes.InvalidParam);
                 case "NotRegistered":
                     throw new BitelException(BitelExceptionCodes.NotRegistered);
+                case "CodeAlreadySent":
+                    throw new BitelException(BitelExceptionCodes.CodeAlreadySent);
                 case "InternalServerError":
                     throw new BitelException(BitelExceptionCodes.InternalServerError);
             }

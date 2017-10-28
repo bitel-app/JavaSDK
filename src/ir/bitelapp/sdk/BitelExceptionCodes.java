@@ -6,6 +6,7 @@ public enum BitelExceptionCodes {
     AuthError(102),
     InvalidParam(103),
     NotRegistered(104),
+    CodeAlreadySent(105),
     Unknown(1000);
 
     public int getCode() {
@@ -30,6 +31,8 @@ public enum BitelExceptionCodes {
                 return "InvalidParam";
             case NotRegistered:
                 return "NotRegistered";
+            case CodeAlreadySent:
+                return "CodeAlreadySent";
             default:
                 return "Unknown";
         }

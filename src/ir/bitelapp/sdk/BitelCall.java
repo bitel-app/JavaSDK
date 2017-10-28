@@ -12,6 +12,7 @@ public class BitelCall {
     private String to;
     private long productId;
     private String uuid;
+    private String code;
 
     public String getFrom() {
         return from;
@@ -34,5 +35,14 @@ public class BitelCall {
         this.to = to;
         this.productId = productId;
         this.uuid = UUID.randomUUID().toString();
+        this.code = "";
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
